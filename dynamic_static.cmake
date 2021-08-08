@@ -100,3 +100,10 @@ function(dst_add_target_test_suite)
     enable_testing()
     add_test(NAME ${args_target}.tests COMMAND ${args_target}.tests)
 endfunction()
+
+# TODO : Documentation
+function(dst_fetch_content)
+    cmake_parse_arguments(args "" "target" "" ${ARGN})
+    FetchContent_Declare(${args_target} ${ARGN})
+    FetchContent_MakeAvailable(${args_target})
+endfunction()
